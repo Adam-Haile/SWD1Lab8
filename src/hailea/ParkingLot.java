@@ -38,9 +38,12 @@ public class ParkingLot {
      * @param capacity Integer (Capacity of parking lot)
      */
     public ParkingLot(String name, int capacity) {
-        if(name != null) {
-            this.name = name;
-        }
+        this.name = name;
+        this.capacity = capacity;
+    }
+    
+    public ParkingLot(int capacity) {
+        this.name = "test";
         this.capacity = capacity;
     }
 
