@@ -105,7 +105,7 @@ public class ParkingDriver {
                     + driveway.getMinutesClosed() + ".");
         }
 
-        driveway = new ParkingLot(null, 10);
+        driveway = new ParkingLot(10);
         for(int i=0; i<7; ++i) {
             driveway.markVehicleEntry(2);
         }
@@ -155,7 +155,7 @@ public class ParkingDriver {
      */
     private static void testParkingLot() {
         displayMessage("More Complete Test of Parking Lot...");
-        ParkingLot lot = new ParkingLot(null, 4);
+        ParkingLot lot = new ParkingLot(4);
 
         if(!lot.getName().equals("test")) {
             displayError("Lot name should be 'test' not '" + lot.getName() + "'.");
@@ -176,7 +176,7 @@ public class ParkingDriver {
      */
     private static void testComingAndGoing() {
         displayMessage("Testing Coming and Going...");
-        ParkingLot busy = new ParkingLot(null, 5);
+        ParkingLot busy = new ParkingLot(5);
         busy.markVehicleEntry(5);
         busy.markVehicleEntry(10);
         busy.markVehicleEntry(12);
@@ -445,7 +445,7 @@ public class ParkingDriver {
      * and exiting within the same minute works.
      */
     public static void test0TimeEntryExit() {
-        ParkingLot lot = new ParkingLot(null, 6);
+        ParkingLot lot = new ParkingLot(6);
 
         lot.markVehicleEntry(50);
         if(lot.getNumberOfSpotsRemaining()!=5) {
