@@ -30,6 +30,8 @@ public class ParkingLot {
     int timeOpened = 0;
     int compoundedClosedTime;
 
+    final int percentMultiplier = 100;
+
     /**
      * Initialized the ParkingLot classs
      * @param name String (Name of parking lot)
@@ -55,7 +57,7 @@ public class ParkingLot {
      * @return True/False If the parking lot is closed
      */
     public boolean isClosed() {
-        double percent = (amountOfCars / capacity) * 100;
+        double percent = (amountOfCars / capacity) * percentMultiplier;
         return percent >= CLOSED_THRESHOLD;
     }
 
@@ -84,7 +86,8 @@ public class ParkingLot {
         if(getNumberOfSpotsRemaining() == 0) {
             System.out.format("%s parking lot status: CLOSED\n", this.name);
         } else {
-            System.out.format("%s parking lot status: %.2f\n", this.name, ((double)(amountOfCars / capacity) * 100));
+            System.out.format("%s parking lot status: %.2f\n", this.name,
+                    ((amountOfCars / capacity) * percentMultiplier));
         }
     }
 
@@ -114,7 +117,7 @@ public class ParkingLot {
      * @return Number of spots remaining in parking lot
      */
     public int getNumberOfSpotsRemaining() {
-        if((amountOfCars / capacity) * 100 > 100) {
+        if((amountOfCars / capacity) * percentMultiplier > percentMultiplier) {
             return 0;
         } else {
             return (int) (capacity - amountOfCars);
